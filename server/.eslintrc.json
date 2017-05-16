@@ -1,0 +1,40 @@
+{
+  "extends": "eslint:recommended",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "rules": {
+    "no-console": [
+      2,
+      {
+        "allow": [
+          "warn",
+          "error"
+        ]
+      }
+    ],
+    "quotes": [2, "double"],
+    "semi": [2, "always"],
+    "no-trailing-spaces": 2,
+    "no-whitespace-before-property": 2,
+    "no-multi-spaces": 2,
+    "no-multiple-empty-lines": 2,
+    "curly": 2,
+    "object-curly-spacing": [2, "always"],
+    "eol-last": 2,
+    "indent": [
+      2,
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ]
+  },
+  "globals": {
+    "Promise": true
+  }
+}

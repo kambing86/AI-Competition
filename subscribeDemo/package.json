@@ -1,0 +1,9 @@
+{
+  "name": "subscribe-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "redis": "^2.7.1"
+  }
+}

@@ -1,0 +1,43 @@
+version: "3"
+services:
+  server:
+    build: ./server
+    # volumes:
+    #   - ./server:/server
+    ports:
+      - 3001:3001
+    depends_on:
+      - redis
+      - mongodb
+  redis:
+    image: redis:alpine
+    volumes:
+      - ./redis-data:/data
+    ports:
+      - 6379:6379
+  mongodb:
+    image: mvertes/alpine-mongo:latest
+    volumes:
+      - ./mongodb-data:/data/db
+      # - mongodb:/data/db
+    ports:
+      - 27017:27017
+      - 28017:28017
+  subscribe-demo:
+    build: ./subscribeDemo
+    # volumes:
+    #   - ./subscribeDemo:/subscribeDemo
+    ports:
+      - 3002:3002
+    depends_on:
+      - server
+  ai:
+    build: ./ai
+    # volumes:
+    #   - ./ai:/ai
+    ports:
+      - 3003:3003
+    depends_on:
+      - server
+# volumes:
+#   mongodb:
