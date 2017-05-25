@@ -6,9 +6,7 @@ const historicalDataPath = require("./historicalDataPath");
 
 (async () => {
   try { await fs.accessAsync(getPath(__dirname, historicalDataPath), fs.constants.R_OK); }
-  catch (e) {
-    await fs.mkdirAsync(getPath(__dirname, historicalDataPath));
-  }
+  catch (e) { await fs.mkdirAsync(getPath(__dirname, historicalDataPath)); }
 })();
 
 module.exports = async (symbol, data) => {
