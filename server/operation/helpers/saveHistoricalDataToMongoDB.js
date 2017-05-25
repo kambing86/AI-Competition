@@ -11,5 +11,9 @@ module.exports = async (symbol, data) => {
   };
   const db = await mongo;
   const collection = db.collection("historicalData");
-  await collection.insert(object);
+  await collection.update(
+    { symbol },
+    object,
+    { upsert: true }
+  );
 };

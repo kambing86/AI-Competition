@@ -1,7 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
 
 module.exports = (async () => {
-  const db = await MongoClient.connect("mongodb://mongodb:27017/yahooStock");
+  const db = await MongoClient.connect("mongodb://mongodb:27017/stock");
   const collections = await db.collections();
   const toCreateIndexAry = {
     historicalData: {
