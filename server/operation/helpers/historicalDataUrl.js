@@ -1,4 +1,18 @@
+const config = require("../../config");
+const sourceUrl = config.sourceUrl[config.source];
+
+function getUrl(options) {
+  var returnString = sourceUrl;
+  for (const key in options) {
+    returnString = returnString.replace(new RegExp(`{{${key}}}`, "g"), options[key]);
+  }
+  return returnString;
+}
+
 module.exports = symbol => {
   const currentYear = new Date().getFullYear();
-  return `http://ichart.finance.yahoo.com/table.csv?s=${symbol}&a=00&b=01&c=1900&d=11&e=31&f=${currentYear}&g=d&ignore=.csv`;
+  return getUrl({
+    symbol,
+    currentYear
+  });
 };
